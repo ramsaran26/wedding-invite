@@ -1,0 +1,11 @@
+footer {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.names {
+    font: 2.4rem var(--font-script);
+    color: var(--color-tertiary);
+}

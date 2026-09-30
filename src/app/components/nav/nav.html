@@ -1,0 +1,9 @@
+<nav [class.solid]="solid()">
+    <a href="#home" class="logo">{{ w.groom[0] }} &amp; {{ w.bride[0] }}</a>
+    <button class="menu" (click)="open.set(!open())" aria-label="Toggle menu">&#9776;</button>
+    <ul [class.open]="open()">
+        @for (l of links; track l.id) {
+        <li><a [href]="'#' + l.id" (click)="open.set(false)">{{ l.label }}</a></li>
+        }
+    </ul>
+</nav>

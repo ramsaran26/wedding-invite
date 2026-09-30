@@ -1,0 +1,11 @@
+<header id="home" class="hero">
+    <p class="up" style="--d:.2s">Together with their families</p>
+    <h1>
+        <span class="up" style="--d:.5s">{{ w.groom }}</span>
+        <i class="up" style="--d:.9s">weds</i>
+        <span class="up" style="--d:1.2s">{{ w.bride }}</span>
+    </h1>
+    <p class="tag up" style="--d:1.6s">{{ w.tagline }}</p>
+    <p class="up" style="--d:1.9s">{{ w.date | date: 'd MMMM y' }}, {{ w.city }}</p>
+    <div class="up" style="--d:2.2s"><app-countdown /></div>
+</header>

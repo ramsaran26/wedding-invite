@@ -1,0 +1,12 @@
+<section id="gallery" class="section">
+    <h2 class="title">A Gallery Made of Moments</h2>
+    @defer (on viewport) {
+    <div class="grid">
+        @for (p of w.photos; track p) {
+        <img reveal [src]="p" alt="Photo of Praveen and Gayathri" loading="lazy">
+        }
+    </div>
+    } @placeholder {
+    <div class="ph"></div>
+    }
+</section>

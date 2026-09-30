@@ -1,0 +1,122 @@
+.event {
+    position: relative;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-tertiary);
+}
+
+.event:last-child {
+    border-bottom: 1px solid var(--color-tertiary);
+}
+
+.info {
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+h3 {
+    font: 400 1.8rem var(--font-heading);
+    color: var(--color-primary);
+}
+
+.when {
+    color: var(--color-text-1);
+}
+
+/* Mobile / touch (default): help text under each event, no map icon */
+.hint {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.map {
+    display: none;
+}
+
+/* Desktop with a mouse: slide the details aside, reveal the map icon */
+@media (min-width: 641px) and (hover: hover) {
+    .event {
+        --shift: clamp(60px, 12vw, 150px);
+    }
+
+    .hint {
+        display: none;
+    }
+
+    .info {
+        transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .map {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        position: absolute;
+        top: 50%;
+        right: 6%;
+        transform: translate(24px, -50%);
+        opacity: 0;
+        pointer-events: none;
+        color: var(--color-primary);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .pin {
+        display: grid;
+        place-items: center;
+        width: 3.4rem;
+        height: 3.4rem;
+        border-radius: 50%;
+        background: var(--color-primary);
+        color: #fff;
+        transition: transform 0.3s ease;
+    }
+
+    .pin svg {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .map:hover .pin {
+        transform: scale(1.08);
+    }
+
+    /* even rows mirror: details go right, map appears on the left */
+    .event.alt .map {
+        right: auto;
+        left: 6%;
+        transform: translate(-24px, -50%);
+    }
+
+    .event:hover .info,
+    .event:focus-within .info {
+        transform: translateX(calc(var(--shift) * -1));
+    }
+
+    .event.alt:hover .info,
+    .event.alt:focus-within .info {
+        transform: translateX(var(--shift));
+    }
+
+    .event:hover .map,
+    .event:focus-within .map {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .info,
+    .map,
+    .pin {
+        transition: none;
+    }
+}

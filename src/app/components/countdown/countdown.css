@@ -1,0 +1,16 @@
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 2.5rem);
+}
+
+b {
+    display: block;
+    font: 400 clamp(2rem, 7vw, 3.2rem)/1 var(--font-heading);
+    color: var(--color-tertiary);
+}
+
+span {
+    font-size: .9rem;
+    color: var(--color-secondary);
+}
