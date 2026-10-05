@@ -36,7 +36,7 @@ export const WEDDING = {
       year: 'Mar 2026', 
       title: 'A Little Hello', 
       text: 'A matrimony match led to an Instagram hello — and a conversation we didn’t want to end.',
-      photo: '/assets/little_hello.png'
+      photo: '/assets/little_hello.jpg'
     },
     { 
       year: '29 Mar 2026', 
@@ -48,7 +48,7 @@ export const WEDDING = {
       year: 'Apr–May 2026', 
       title: 'Becoming Us', 
       text: 'Long conversations, little discoveries, and countless reasons to look forward to each other.',
-      photo: '/assets/becoming_us.png'
+      photo: '/assets/becoming_us.jpg'
     },
     { 
       year: '11 June 2026', 
