@@ -17,7 +17,7 @@ export const WEDDING = {
     description: 'Join us as we celebrate the wedding of Praveen and Gayathri.',
   },
   events: [
-    { name: 'Sangeet', date: '23 October 2026', time: '5:00 pm onwards', place: 'The Party Park, Madurai', mapUrl: 'https://maps.app.goo.gl/zfNX4AWCD7pnT5ni7' },
+    // { name: 'Sangeet', date: '23 October 2026', time: '5:00 pm onwards', place: 'The Party Park, Madurai', mapUrl: 'https://maps.app.goo.gl/zfNX4AWCD7pnT5ni7' },
     { name: 'Engagement & Reception', date: '24 October 2026', time: '6:00 pm onwards', place: 'VLK Mahal, Theni' , mapUrl: 'https://maps.app.goo.gl/XtDpAmRuMaTYSCHv7',},
     { name: 'Muhurtham', date: '25 October 2026', time: '10:05 am onwards', place: 'VLK Mahal, Theni', mapUrl: 'https://maps.app.goo.gl/XtDpAmRuMaTYSCHv7', },
   ],
