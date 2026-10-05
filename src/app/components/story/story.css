@@ -1,27 +1,44 @@
-/* Invisible 2-column box: odd points left, even points right */
 .zig {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 820px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
+/* Row: text in one column, photo in the other. Odd rows: text left. Even rows: text right. */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
 .item {
+    grid-column: 1;
+    grid-row: 1;
     padding: 1rem 1.5rem;
+}
+
+.photo {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 1rem 1.5rem;
+}
+
+.row.right .item {
+    grid-column: 2;
+}
+
+.row.right .photo {
+    grid-column: 1;
+}
+
+/* Text reveal */
+.item {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.item.left {
-    grid-column: 1;
-}
-
-.item.right {
-    grid-column: 2;
-}
-
-.item.show {
+.row.show .item {
     opacity: 1;
     transform: none;
 }
@@ -38,12 +55,43 @@ h3 {
     margin: 0.4rem 0;
 }
 
-/* Arrow row spans both columns; .flip mirrors it for right-to-left */
+/* Photo: print-style frame, tilts opposite ways on alternate rows, pops in after the text */
+.photo {
+    --tilt: -2deg;
+    opacity: 0;
+    transform: scale(0.92) rotate(calc(var(--tilt) * 3));
+    transition: opacity 0.9s ease 0.25s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s;
+}
+
+.row.right .photo {
+    --tilt: 2deg;
+}
+
+.row.show .photo {
+    opacity: 1;
+    transform: rotate(var(--tilt));
+}
+
+.photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 8 / 7;
+    /* laptop: landscape */
+    object-fit: cover;
+    /* any photo shape is cropped to fit, never stretched */
+    object-position: center;
+    border: 6px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.18);
+}
+
+/* Arrow between rows; pulled in slightly so it sits close to the text */
 .link {
-    grid-column: 1 / -1;
+    display: block;
     width: 100%;
     height: auto;
     overflow: visible;
+    margin: -1.5rem 0;
 }
 
 .link.flip {
@@ -74,9 +122,11 @@ h3 {
     stroke-dashoffset: 0;
 }
 
-/* Phones: same zigzag and arrows, just tighter */
+/* Phones: same layout, tighter, portrait photos so they stay tall enough beside the text */
 @media (max-width: 640px) {
-    .item {
+
+    .item,
+    .photo {
         padding: 0.5rem 0.75rem;
     }
 
@@ -93,18 +143,31 @@ h3 {
         line-height: 1.5;
     }
 
+    .photo img {
+        aspect-ratio: 4 / 5;
+        border-width: 4px;
+    }
+
+    .link {
+        margin: -0.75rem 0;
+    }
+
     .line,
     .head {
         stroke-width: 4;
     }
-
-    /* keeps the arrow visible when the SVG scales down */
 }
 
 @media (prefers-reduced-motion: reduce) {
     .item {
         opacity: 1;
         transform: none;
+        transition: none;
+    }
+
+    .photo {
+        opacity: 1;
+        transform: rotate(var(--tilt));
         transition: none;
     }
 

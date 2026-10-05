@@ -3,30 +3,28 @@
 
   <div class="zig">
     @for (s of story; track $index; let i = $index; let last = $last) {
-      <article
-        #item
-        class="item"
-        [class.left]="i % 2 === 0"
-        [class.right]="i % 2 === 1"
-        [class.show]="stage() >= i * 2"
-      >
+    <!-- one row = text on one side, photo on the other -->
+    <div #item class="row" [class.right]="i % 2 === 1" [class.show]="stage() >= i * 2">
+      <article class="item">
         <span class="year">{{ s.year }}</span>
         <h3>{{ s.title }}</h3>
         <p>{{ s.text }}</p>
       </article>
 
-      @if (!last) {
-        <svg
-          class="link"
-          [class.flip]="i % 2 === 1"
-          [class.show]="stage() >= i * 2 + 1"
-          viewBox="0 0 600 90"
-          aria-hidden="true"
-        >
-          <path class="line" pathLength="1" d="M150 4 C150 75 450 15 450 82" />
-          <path class="head" pathLength="1" d="M439 67 L450 86 L461 67" />
-        </svg>
+      @if (s.photo) {
+      <figure class="photo">
+        <img [src]="s.photo" [alt]="'Photo: ' + s.title" loading="lazy" decoding="async" />
+      </figure>
       }
+    </div>
+
+    @if (!last) {
+    <svg class="link" [class.flip]="i % 2 === 1" [class.show]="stage() >= i * 2 + 1" viewBox="0 0 600 90"
+      aria-hidden="true">
+      <path class="line" pathLength="1" d="M150 4 C150 75 450 15 450 82" />
+      <path class="head" pathLength="1" d="M439 67 L450 86 L461 67" />
+    </svg>
+    }
     }
   </div>
 </section>

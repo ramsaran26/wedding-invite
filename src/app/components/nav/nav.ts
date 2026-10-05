@@ -13,8 +13,9 @@ export class Nav {
   open = signal(false);
   links = [
     { id: 'story', label: 'Our story' },
-    { id: 'gallery', label: 'Gallery' },
     { id: 'events', label: 'Events' },
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'rsvp', label: 'RSVP' }
   ];
   onScroll() { this.solid.set(window.scrollY > 40); }
 }

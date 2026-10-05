@@ -1,11 +1,16 @@
-.event {
-    position: relative;
-    padding: 2rem 0;
-    border-top: 1px solid var(--color-tertiary);
+/* full-width tinted band; the inner .section keeps its centred 960px width */
+:host {
+  display: block;
+  background: var(--color-secondary);
 }
 
+.event {
+  position: relative;
+  padding: 2rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
 .event:last-child {
-    border-bottom: 1px solid var(--color-tertiary);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 .info {
@@ -39,7 +44,7 @@ h3 {
 /* Desktop with a mouse: slide the details aside, reveal the map icon */
 @media (min-width: 641px) and (hover: hover) {
     .event {
-        --shift: clamp(60px, 12vw, 150px);
+        --shift: clamp(82px, 20vw, 280px);
     }
 
     .hint {

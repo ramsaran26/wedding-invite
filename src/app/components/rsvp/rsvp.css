@@ -1,0 +1,74 @@
+/* tinted full-width band, same as events; delete this block if you want it plain */
+:host {
+    display: block;
+    background: var(--color-secondary);
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+.lead {
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+}
+
+.name {
+    display: block;
+    max-width: 320px;
+    margin: 0 auto 1.8rem;
+}
+
+.name span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-2);
+}
+
+.name input {
+    width: 100%;
+    padding: 0.7rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-text-1);
+    font: inherit;
+    text-align: center;
+}
+
+.name input:focus {
+    outline: none;
+    border-bottom-width: 3px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.row .btn {
+    flex: 1 1 220px;
+    max-width: 300px;
+    text-align: center;
+    font: inherit;
+    cursor: pointer;
+}
+
+h3 {
+    font: 400 1.5rem var(--font-heading);
+    color: var(--color-text-1);
+    margin-bottom: 1.2rem;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.btn.ghost:hover {
+    background: var(--color-primary);
+    color: #fff;
+}

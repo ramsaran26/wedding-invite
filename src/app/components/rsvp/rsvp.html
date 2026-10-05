@@ -1,0 +1,22 @@
+<section id="rsvp" class="section">
+    <h2 class="title">Be our guest</h2>
+    <p class="lead">
+        Let us know you're coming, or just say hello. Message us on WhatsApp and save the date to your calendar.
+    </p>
+
+    <label class="name">
+        <span>Your name (optional)</span>
+        <input type="text" maxlength="40" autocomplete="name" placeholder="E.g. Saran" (input)="onName($event)" />
+    </label>
+
+    <div class="row">
+        <a class="btn" [href]="groomLink()" target="_blank" rel="noopener">Chat with {{ w.groom }}</a>
+        <a class="btn" [href]="brideLink()" target="_blank" rel="noopener">Chat with {{ w.bride }}</a>
+    </div>
+
+    <h3>Save the date</h3>
+    <div class="row">
+        <a class="btn ghost" [href]="googleUrl" target="_blank" rel="noopener">Google Calendar (Android)</a>
+        <button type="button" class="btn ghost" (click)="downloadIcs()">Apple Calendar (iPhone)</button>
+    </div>
+</section>
